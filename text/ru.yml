@@ -14,14 +14,14 @@ bot:
         Active orders:
         /activeorders
 
+        Today orders:
+        /todayorders
+
+        Ready to deliver orders:
+        /readytodeliverorders
+
       reports_menu: |
         Reports Menu
-
-        Today orders report:
-        /todayordersreports
-
-        Active orders report:
-        /activeordersreport
 
     orders:
       order_template: |
@@ -30,6 +30,9 @@ bot:
         SKUs: {order.skus}
         Total amount: {order.total_amount}
         Status: {order.status}
+
+        🐶 Change status:
+        /changestatus{order.order_id}
 
       orders_template_header: |
         Дата выгрузки: {dt_created}

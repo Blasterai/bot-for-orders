@@ -115,7 +115,8 @@ class Orders:
             + "\n"
         )
         for order in self.orders:
-            result += order.to_str() + "\n"
+            result += order.to_str() + "\n\n"
+
         return result
 
     def add_orders_to_google_sheets(self):
