@@ -6,7 +6,10 @@ bot:
         /ordersmenu
 
         Available reports:
-        /availablereports
+        /availablereportsmenu
+
+        ALARMS management:
+        /managealarmsmenu
 
       orders_menu: |
         Orders Menu
@@ -25,15 +28,15 @@ bot:
 
     orders:
       order_template: |
-        Date: {dt_created}
+        Date: `{dt_created}`
         Order ID: {order.order_id}
         SKUs: {order.skus}
         Total amount: {order.total_amount}
-        Status: {order.status}
+        Status: `{order.status}`
 
         🐶 Change status:
         /changestatus{order.order_id}
 
       orders_template_header: |
-        Дата выгрузки: {dt_created}
+        Дата выгрузки: `{dt_created}`
 

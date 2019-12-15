@@ -1,5 +1,5 @@
 import datetime as dt
-from telegram import Update, Message
+from telegram import Update, Message, Bot
 from telegram.ext import CallbackContext
 
 import settings
@@ -26,13 +26,14 @@ def active_orders(update: Update, context: CallbackContext, **kwargs) -> Message
     # active_orders_df_from_etl = select_orders_by_order_ids(active_orders_ids)
 
     orders = Orders.from_google_sheets_dataframe(active_orders_df)
-    return msg.reply_text(orders.to_str())
+    return msg.reply_markdown(orders.to_str())
 
 
 @log_this
 @catch_exceptions
 @main_commander.register("/readytodeliverorders")
 def active_orders(update: Update, context: CallbackContext, **kwargs) -> Message:
+    bot: Bot = context.bot
     msg: Message = update.effective_message
 
     orders_df = get_df_from_google_sheets(
@@ -44,7 +45,7 @@ def active_orders(update: Update, context: CallbackContext, **kwargs) -> Message
     # active_orders_df_from_etl = select_orders_by_order_ids(active_orders_ids)
 
     orders = Orders.from_google_sheets_dataframe(active_orders_df)
-    return msg.reply_text(orders.to_str())
+    return msg.reply_markdown(orders.to_str())
 
 
 @log_this
@@ -70,4 +71,4 @@ def today_orders(update: Update, context: CallbackContext, **kwargs) -> Message:
         today_orders_df
     )  # TODO: Fix status handling
 
-    return msg.reply_text(orders.to_str())
+    return msg.reply_markdown(orders.to_str())
