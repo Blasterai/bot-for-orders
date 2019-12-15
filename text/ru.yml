@@ -1,0 +1,36 @@
+bot:
+  text:
+    menu:
+      main: |
+        Orders menu:
+        /ordersmenu
+
+        Available reports:
+        /availablereports
+
+      orders_menu: |
+        Orders Menu
+
+        Active orders:
+        /activeorders
+
+      reports_menu: |
+        Reports Menu
+
+        Today orders report:
+        /todayordersreports
+
+        Active orders report:
+        /activeordersreport
+
+    orders:
+      order_template: |
+        Date: {dt_created}
+        Order ID: {order.order_id}
+        SKUs: {order.skus}
+        Total amount: {order.total_amount}
+        Status: {order.status}
+
+      orders_template_header: |
+        Дата выгрузки: {dt_created}
+
