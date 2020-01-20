@@ -5,7 +5,7 @@ from loguru import logger
 from telegram.ext import Updater, Dispatcher
 
 import settings
-from handlers import main_command_handler
+from handlers import main_command_handler, change_order_status_conv_handler
 
 
 def _make_updater(read_timeout: int = 15, connect_timeout: int = 20):
@@ -26,6 +26,10 @@ def _make_updater(read_timeout: int = 15, connect_timeout: int = 20):
 def main():
     updater: Updater = _make_updater()
     dp: Dispatcher = updater.dispatcher
+
+    handlers = [change_order_status_conv_handler]
+    for handler in handlers:
+        dp.add_handler(handler)
 
     dp.add_handler(main_command_handler)
 

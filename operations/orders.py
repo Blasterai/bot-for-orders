@@ -26,7 +26,9 @@ class Order:
             self.skus = self._handle_skus()
 
     def _handle_skus(self):
-        return ", ".join(self.skus)
+        if self.skus != [None]:
+            return ", ".join(self.skus)
+        return
 
     def to_str(self) -> str:
         return ui_orders.order_template.format(

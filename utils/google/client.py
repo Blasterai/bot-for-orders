@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from definitions import CONFIG_DIR
 from settings import SCOPES
 
-CRED_FILE = CONFIG_DIR / "bot-for-orders-google-cred-new.json"  # TODO: from AWS S3
+CRED_FILE = CONFIG_DIR / "bot-for-orders-google-cred.json"  # TODO: from AWS S3
 
 
 @attr.s(auto_attribs=True)
